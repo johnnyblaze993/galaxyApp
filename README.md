@@ -9,9 +9,6 @@ If you closed it, open Docker Desktop from your Start Menu and wait until it say
 
 From your project root (pokedexPyApp):
 
-bash
-Copy
-Edit
 docker-compose up
 This will start both the backend (Django) and the Postgres database.
 
@@ -23,9 +20,6 @@ To stop everything later: Press Ctrl+C.
 
 Open a new terminal, then run:
 
-bash
-Copy
-Edit
 cd frontend
 npm install        # Only if you haven’t run this before or added new deps
 npm run dev
@@ -35,9 +29,6 @@ This will start your Next.js app on <http://localhost:3000>.
 
 If you need to re-run migrations or add sample data:
 
-bash
-Copy
-Edit
 docker-compose run backend python manage.py migrate
 docker-compose run backend python manage.py shell
 
