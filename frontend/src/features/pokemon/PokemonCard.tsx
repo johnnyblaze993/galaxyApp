@@ -1,6 +1,5 @@
 import { Pokemon } from "./pomemon.types";
 import "@/styles/components.css";
-import "@/styles/layout.css";
 
 type Props = { pokemon: Pokemon };
 
