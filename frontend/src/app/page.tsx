@@ -12,8 +12,8 @@ export default function HomePage() {
 				<a href="/pokemon" className="link">
 					View Pokémon
 				</a>
-				<a href="/types" className="link">
-					Types
+				<a href="/pokemon-types" className="link">
+					Pokemon-types
 				</a>
 				<a href="/moves" className="link">
 					Moves
