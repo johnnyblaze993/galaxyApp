@@ -1,33 +1,32 @@
 import { Pokemon } from "./pomemon.types";
-import styles from "./PokemonCard.module.css"; // create this for your card styles
+import "@/styles/components.css";
+import "@/styles/layout.css";
 
 type Props = { pokemon: Pokemon };
 
 export function PokemonCard({ pokemon }: Props) {
 	return (
-		<div className={styles.card}>
-			<div className={styles.header}>
-				<span className={styles.pokedexNum}>
+		<div className="card">
+			<div className="card-header">
+				<span className="pokedex-num">
 					#{pokemon.pokedex_num.toString().padStart(3, "0")}
 				</span>
-				<span className={styles.name}>{pokemon.name}</span>
+				<span className="poke-name">{pokemon.name}</span>
 			</div>
-			<div className={styles.types}>
+			<div className="type-list">
 				{pokemon.types.map((type) => (
-					<span key={type} className={styles.typeBadge}>
+					<span key={type} className={`type-badge type-${type.toLowerCase()}`}>
 						{type}
 					</span>
 				))}
 			</div>
-			<div className={styles.stats}>
+			<div className="stats">
 				<span>HP: {pokemon.base_stats.hp}</span>
 				<span>Atk: {pokemon.base_stats.atk}</span>
 				<span>Def: {pokemon.base_stats.def}</span>
 			</div>
-			<div className={styles.evolve}>
-				Evolves: {pokemon.does_evolve ? "✅" : "❌"}
-			</div>
-			<p className={styles.desc}>{pokemon.description}</p>
+			<div className="evolve">Evolves: {pokemon.does_evolve ? "✅" : "❌"}</div>
+			<p className="poke-desc">{pokemon.description}</p>
 		</div>
 	);
 }

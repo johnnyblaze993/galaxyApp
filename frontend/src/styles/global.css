@@ -1,0 +1,44 @@
+/* global.css */
+
+:root {
+    --color-dark: #004030;
+    --color-main: #4A9782;
+    --color-accent: #DCD0A8;
+    --color-bg: #FFF9E5;
+
+    --background: var(--color-bg);
+    --foreground: var(--color-dark);
+
+    --radius: 16px;
+    --spacing: 8px;
+    --font-base: 'Roboto', Arial, sans-serif;
+}
+
+body {
+    color: var(--color-dark);
+    background: var(--color-bg);
+    font-family: var(--font-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Utility classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 16px;
+}
+
+.mt-4 {
+    margin-top: 32px;
+}

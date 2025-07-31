@@ -1,6 +1,7 @@
-import "@/app/globals.css";
-import styles from "@/styles/Layout.module.css";
 import QueryProvider from "./providers/QueryProvider";
+import "@/styles/global.css";
+import "@/styles/layout.css";
+import "@/styles/components.css";
 
 export const metadata = {
 	title: "PokedexPyApp",
@@ -16,10 +17,10 @@ export default function RootLayout({
 		<html lang="en">
 			<body>
 				<QueryProvider>
-					<div className={styles.wrapper}>
-						<header className={styles.header}>PokedexPyApp</header>
-						<main className={styles.content}>{children}</main>
-						<footer className={styles.footer}>
+					<div className="layout-wrapper">
+						<header className="header">PokedexPyApp</header>
+						<main className="content">{children}</main>
+						<footer className="footer">
 							© {new Date().getFullYear()} PokedexPyApp — Powered by Next.js &
 							Django
 						</footer>

@@ -1,24 +1,24 @@
-import styles from "./page.module.css";
+import "@/styles/components.css";
 
 export default function HomePage() {
 	return (
-		<section className={styles.home}>
+		<section className="home">
 			<h1>Welcome to PokedexPyApp!</h1>
 			<p>
 				Explore, search, and discover all your favorite Pokémon using our modern
 				Django + Next.js powered Pokedex.
 			</p>
-			<div className={styles.links}>
-				<a href="/pokemon" className={styles.link}>
+			<div className="links">
+				<a href="/pokemon" className="link">
 					View Pokémon
 				</a>
-				<a href="/types" className={styles.link}>
+				<a href="/types" className="link">
 					Types
 				</a>
-				<a href="/moves" className={styles.link}>
+				<a href="/moves" className="link">
 					Moves
 				</a>
-				<a href="/evolutions" className={styles.link}>
+				<a href="/evolutions" className="link">
 					Evolutions
 				</a>
 			</div>
