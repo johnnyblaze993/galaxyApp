@@ -1,4 +1,4 @@
-import { Pokemon } from "./pomemon.types";
+import { Pokemon } from "./pokemon.types";
 import "@/styles/components.css";
 
 type Props = { pokemon: Pokemon };

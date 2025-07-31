@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { Pokemon } from "./pomemon.types";
+import { Pokemon } from "./pokemon.types";
 
 // API endpoint matches your Django router config!
 export function usePokemonList() {
