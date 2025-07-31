@@ -1,17 +1,23 @@
-/* global.css */
-
 :root {
-    --color-dark: #004030;
-    --color-main: #4A9782;
-    --color-accent: #DCD0A8;
-    --color-bg: #FFF9E5;
-
+    --color-dark: #21295C;
+    /* Deep Indigo */
+    --color-main: #1B6CA8;
+    /* Electric Blue */
+    --color-accent: #6EC6A6;
+    /* Soft Green */
+    --color-bg: #F7F7FF;
+    /* Ultra Light */
+    --color-surface: #FFFFFF;
+    /* Card/Element */
+    --color-neutral: #637074;
+    /* Slate */
+    --color-error: #FF6B6B;
     --background: var(--color-bg);
     --foreground: var(--color-dark);
 
-    --radius: 16px;
-    --spacing: 8px;
-    --font-base: 'Roboto', Arial, sans-serif;
+    --radius: 14px;
+    --spacing: 10px;
+    --font-base: 'Inter', 'Roboto', Arial, sans-serif;
 }
 
 body {
@@ -30,7 +36,6 @@ body {
     padding: 0;
 }
 
-/* Utility classes */
 .text-center {
     text-align: center;
 }
