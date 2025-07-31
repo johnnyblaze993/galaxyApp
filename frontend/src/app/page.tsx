@@ -2,13 +2,13 @@ import "@/styles/components.css";
 
 export default function HomePage() {
 	return (
-		<section className="home">
+		<section>
 			<h1>Welcome to PokedexPyApp!</h1>
-			<p>
+			<p style={{ marginBottom: "2rem" }}>
 				Explore, search, and discover all your favorite Pokémon using our modern
 				Django + Next.js powered Pokedex.
 			</p>
-			<div className="links">
+			<div className="grid">
 				<a href="/pokemon" className="link">
 					View Pokémon
 				</a>
