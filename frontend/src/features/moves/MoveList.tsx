@@ -1,5 +1,6 @@
 "use client";
 import { useMoves } from "./useMoves";
+import "@/styles/components.css";
 
 export function MovesList() {
 	const { data, isLoading, error } = useMoves();
@@ -8,14 +9,20 @@ export function MovesList() {
 	if (error) return <div>Failed to load moves.</div>;
 
 	return (
-		<ul>
+		<div className="grid">
 			{data?.map((move) => (
-				<li key={move.id}>
-					<strong>{move.name}</strong> – {move.type}, Power: {move.power}, Acc:{" "}
-					{move.accuracy}
-					<div>{move.description}</div>
-				</li>
+				<div key={move.id} className="card move-card">
+					<div className="move-header">
+						<span className="move-name">{move.name}</span>
+						{/* <span className="move-type">{move.type}</span> */}
+					</div>
+					<div className="move-details">
+						<span>Power: {move.power}</span>
+						<span>Acc: {move.accuracy}</span>
+					</div>
+					<p className="move-desc">{move.description}</p>
+				</div>
 			))}
-		</ul>
+		</div>
 	);
 }
