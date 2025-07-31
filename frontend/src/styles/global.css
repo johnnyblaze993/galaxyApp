@@ -1,23 +1,18 @@
 :root {
     --color-dark: #21295C;
-    /* Deep Indigo */
-    --color-main: #1B6CA8;
-    /* Electric Blue */
-    --color-accent: #6EC6A6;
-    /* Soft Green */
+    --color-main: #5E81F4;
+    --color-accent: #D0D8FC;
     --color-bg: #F7F7FF;
-    /* Ultra Light */
-    --color-surface: #FFFFFF;
-    /* Card/Element */
-    --color-neutral: #637074;
-    /* Slate */
-    --color-error: #FF6B6B;
+    --color-card: #FFFFFF;
+    --color-success: #3CB371;
+    --color-danger: #E26A6A;
+
     --background: var(--color-bg);
     --foreground: var(--color-dark);
 
-    --radius: 14px;
-    --spacing: 10px;
-    --font-base: 'Inter', 'Roboto', Arial, sans-serif;
+    --radius: 16px;
+    --spacing: 8px;
+    --font-base: 'Roboto', Arial, sans-serif;
 }
 
 body {

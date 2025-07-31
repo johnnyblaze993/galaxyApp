@@ -12,13 +12,13 @@ export function PokemonCard({ pokemon }: Props) {
 				</span>
 				<span className="poke-name">{pokemon.name}</span>
 			</div>
-			<div className="type-list">
+			{/* <div className="type-list">
 				{pokemon.types.map((type) => (
 					<span key={type} className={`type-badge type-${type.toLowerCase()}`}>
 						{type}
 					</span>
 				))}
-			</div>
+			</div> */}
 			<div className="stats">
 				<span>HP: {pokemon.base_stats.hp}</span>
 				<span>Atk: {pokemon.base_stats.atk}</span>

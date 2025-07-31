@@ -105,6 +105,14 @@
 }
 
 /* Links & buttons */
+
+.links {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding-top: 16px;
+}
+
 .link {
     background: var(--color-main);
     color: var(--color-bg);
