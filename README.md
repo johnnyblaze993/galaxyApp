@@ -39,3 +39,6 @@ docker-compose run backend python manage.py shell
 Frontend: <http://localhost:3000>
 
 Backend API: <http://localhost:8000/api/pokemon/>
+
+/frontend/dockerfile
+ -
