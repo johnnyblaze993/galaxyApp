@@ -1,4 +1,3 @@
-version: "3"
 services:
   db:
     image: postgres:15
@@ -25,17 +24,32 @@ services:
       - DB_USER=pokemaster
       - DB_PASS=pika123
       - DB_HOST=db
+
   frontend:
     build:
       context: ./frontend
-    command: npm run dev
-    volumes:
-      - ./frontend:/app
+    command: ["/bin/sh", "-c", "./entrypoint.sh"]
     ports:
       - "3000:3000"
     depends_on:
       - backend
     environment:
-      - CHOKIDAR_USEPOLLING=true # For Windows/macOS reliability
+      - CHOKIDAR_USEPOLLING=true
+      - NODE_ENV=development
+      - NODE_PATH=/install/node_modules
+    # volumes:
+    #   # Keep the bind mount for your source code, but don't try to manage node_modules here
+    #   - ./frontend:/app
+    develop:
+      watch:
+        - path: ./frontend
+          target: /app
+          action: sync
+          ignore:
+            - node_modules/
+            - .next/
+        - path: ./frontend/package.json
+          action: rebuild
+
 volumes:
   pgdata:
