@@ -21,7 +21,7 @@ class Command(BaseCommand):
         vine_whip = Move.objects.create(name="Vine Whip", power=45, accuracy=1.0, type=grass)
         ember = Move.objects.create(name="Ember", power=40, accuracy=1.0, type=fire)
         water_gun = Move.objects.create(name="Water Gun", power=40, accuracy=1.0, type=water)
-        thunder_shock = Move.objects.create(name="Thunder Shock", power=40, accuracy=1.0, type=electric)
+        # thunder_shock = Move.objects.create(name="Thunder Shock", power=40, accuracy=1.0, type=electric)
 
         # 3. Create pokemon
         bulbasaur = Pokemon.objects.create(
@@ -39,22 +39,22 @@ class Command(BaseCommand):
             height=0.5, weight=9.0, base_stats={"hp": 44, "atk": 48, "def": 65},
             description="After birth, its back swells and hardens into a shell."
         )
-        pikachu = Pokemon.objects.create(
-            name="Pikachu", pokedex_num=25, does_evolve=True,
-            height=0.4, weight=6.0, base_stats={"hp": 35, "atk": 55, "def": 40},
-            description="When several of these Pokémon gather, their electricity could build and cause lightning storms."
-        )
+        # pikachu = Pokemon.objects.create(
+        #     name="Pikachu", pokedex_num=25, does_evolve=True,
+        #     height=0.4, weight=6.0, base_stats={"hp": 35, "atk": 55, "def": 40},
+        #     description="When several of these Pokémon gather, their electricity could build and cause lightning storms."
+        # )
 
         # 4. Set up ManyToMany relationships
         bulbasaur.types.add(grass)
         charmander.types.add(fire)
         squirtle.types.add(water)
-        pikachu.types.add(electric)
+        # pikachu.types.add(electric)
 
         bulbasaur.moves.add(vine_whip)
         charmander.moves.add(ember)
         squirtle.moves.add(water_gun)
-        pikachu.moves.add(thunder_shock)
+        # pikachu.moves.add(thunder_shock)
 
         # 5. Evolutions
         # You can add sample evolutions here if you like
