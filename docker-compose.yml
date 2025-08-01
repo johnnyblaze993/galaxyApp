@@ -25,6 +25,16 @@ services:
       - DB_USER=pokemaster
       - DB_PASS=pika123
       - DB_HOST=db
+  frontend:
+    build:
+      context: ./frontend
+    command: npm run dev
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
 
 volumes:
   pgdata:
