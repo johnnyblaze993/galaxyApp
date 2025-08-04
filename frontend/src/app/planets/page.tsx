@@ -1,11 +1,16 @@
 "use client";
 import { BackButton } from "@/components/BackButton";
+import { Loading } from "@/components/Loading";
 import { usePlanets } from "@/features/planets/usePlanets";
 import "@/styles/components.css";
 
 export default function PlanetsPage() {
 	const { data, isLoading, isError } = usePlanets();
 
+	if (isLoading) return <Loading />;
+	{
+		isError && <div>Error loading planets.</div>;
+	}
 	return (
 		<section>
 			<h1 className="heading">Planets</h1>
@@ -13,9 +18,6 @@ export default function PlanetsPage() {
 				Discover the planets across various stars and galaxies.
 			</p>
 			<BackButton href="/">Back to Home</BackButton>
-
-			{isLoading && <div>Loading...</div>}
-			{isError && <div>Error loading planets.</div>}
 
 			<div className="grid">
 				{data &&

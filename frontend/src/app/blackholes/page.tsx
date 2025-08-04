@@ -1,11 +1,15 @@
 "use client";
 import { BackButton } from "@/components/BackButton";
+import { Loading } from "@/components/Loading";
 import { useBlackHoles } from "@/features/blackholes/useBlackHole";
 import "@/styles/components.css";
 
 export default function BlackHolesPage() {
 	const { data, isLoading, isError } = useBlackHoles();
-
+	if (isLoading) return <Loading />;
+	{
+		isError && <div>Error loading black holes.</div>;
+	}
 	return (
 		<section>
 			<h1 className="heading">Black Holes</h1>
@@ -13,9 +17,6 @@ export default function BlackHolesPage() {
 				Explore the black holes cataloged in our universe.
 			</p>
 			<BackButton href="/">Back to Home</BackButton>
-
-			{isLoading && <div>Loading...</div>}
-			{isError && <div>Error loading black holes.</div>}
 
 			<div className="grid">
 				{data &&

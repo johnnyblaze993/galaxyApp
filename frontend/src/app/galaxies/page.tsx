@@ -3,12 +3,16 @@
 "use client";
 
 import { BackButton } from "@/components/BackButton";
+import { Loading } from "@/components/Loading";
 import { useGalaxies } from "@/features/galaxies/useGalaxies";
 import "@/styles/components.css";
 
 export default function GalaxiesPage() {
 	const { data, isLoading, isError } = useGalaxies();
-
+	if (isLoading) return <Loading />;
+	{
+		isError && <div>Error loading galaxies.</div>;
+	}
 	return (
 		<section>
 			<h1 className="heading">Galaxies</h1>
@@ -16,8 +20,6 @@ export default function GalaxiesPage() {
 				Explore the galaxies in our Astronomy Data Explorer.
 			</p>
 			<BackButton href="/">Back to Home</BackButton>
-			{isLoading && <div>Loading...</div>}
-			{isError && <div>Error loading galaxies.</div>}
 
 			<div className="grid">
 				{data &&

@@ -1,11 +1,16 @@
 "use client";
 import { BackButton } from "@/components/BackButton";
+import { Loading } from "@/components/Loading";
 import { useStars } from "@/features/stars/useStars";
 import "@/styles/components.css";
 
 export default function StarsPage() {
 	const { data, isLoading, isError } = useStars();
 
+	if (isLoading) return <Loading />;
+	{
+		isError && <div>Error loading stars.</div>;
+	}
 	return (
 		<section>
 			<h1 className="heading">Stars</h1>
@@ -13,9 +18,6 @@ export default function StarsPage() {
 				Browse the notable stars in our database.
 			</p>
 			<BackButton href="/">Back to Home</BackButton>
-
-			{isLoading && <div>Loading...</div>}
-			{isError && <div>Error loading stars.</div>}
 
 			<div className="grid">
 				{data &&

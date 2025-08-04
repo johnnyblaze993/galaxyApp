@@ -188,3 +188,48 @@
         background-position: 100% 50%;
     }
 }
+
+/* src/components/Loading.css */
+.loader-container {
+    min-height: 60vh;
+    /* Covers most of viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.galaxy-spinner {
+    width: 54px;
+    height: 54px;
+    border: 5px solid #f2f2f2;
+    border-top: 5px solid #8937FF;
+    border-right: 5px solid #FF3CAC;
+    border-radius: 50%;
+    animation: spin 1.1s linear infinite, shimmer 2.2s linear infinite alternate;
+    margin-bottom: 18px;
+}
+
+.loading-text {
+    color: #8937FF;
+    font-weight: 600;
+    font-size: 1.16rem;
+    letter-spacing: 0.07em;
+}
+
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        box-shadow: 0 0 0 0 #fff7, 0 0 16px 4px #FF3CAC77;
+    }
+
+    100% {
+        box-shadow: 0 0 32px 0 #8937FF66, 0 0 32px 10px #FF3CAC44;
+    }
+}
