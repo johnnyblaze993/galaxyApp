@@ -2,6 +2,7 @@
 
 "use client";
 
+import { BackButton } from "@/components/BackButton";
 import { useGalaxies } from "@/features/galaxies/useGalaxies";
 import "@/styles/components.css";
 
@@ -14,7 +15,7 @@ export default function GalaxiesPage() {
 			<p className="mb-2 description">
 				Explore the galaxies in our Astronomy Data Explorer.
 			</p>
-
+			<BackButton href="/">Back to Home</BackButton>
 			{isLoading && <div>Loading...</div>}
 			{isError && <div>Error loading galaxies.</div>}
 

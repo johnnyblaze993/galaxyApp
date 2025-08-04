@@ -18,11 +18,12 @@ export default function RootLayout({
 			<body>
 				<QueryProvider>
 					<div className="layout-wrapper">
-						<header className="header">PokedexPyApp</header>
+						<header className="header">
+							Welcome to Docker + Django + Next JS environment!
+						</header>
 						<main className="content">{children}</main>
 						<footer className="footer">
-							© {new Date().getFullYear()} PokedexPyApp — Powered by Next.js &
-							Django
+							Dev environment — Powered by Docker, Djnago & Next.js
 						</footer>
 					</div>
 				</QueryProvider>
