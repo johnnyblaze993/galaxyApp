@@ -10,7 +10,7 @@ export default function GalaxiesPage() {
 	const { data, isLoading, isError } = useGalaxies();
 
 	return (
-		<section className="content">
+		<section>
 			<h1 className="heading">Galaxies</h1>
 			<p className="mb-2 description">
 				Explore the galaxies in our Astronomy Data Explorer.

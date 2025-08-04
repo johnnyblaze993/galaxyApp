@@ -1,316 +1,139 @@
-/* components.css */
-
 /* Cards */
 .card {
-    background: var(--color-accent);
-    color: var(--color-dark);
+    background: var(--color-white);
+    color: var(--color-black);
+    border: 2px solid var(--color-border);
     border-radius: var(--radius);
-    box-shadow: 0 2px 10px rgba(0, 64, 48, 0.08);
+    box-shadow: 0 2px 16px rgba(24, 24, 24, 0.06);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: flex-start;
-    transition: box-shadow 0.18s;
-
-    /* 🔥 Add these lines for even card widths */
     width: 100%;
     min-width: 220px;
-    /* You can tweak this! */
-    max-width: 320px;
-    /* Controls the max card width */
+    max-width: 340px;
     margin: 0 auto;
-    /* Center the card inside its grid column */
     box-sizing: border-box;
+    transition: border-color 0.15s, box-shadow 0.14s, transform 0.12s;
 }
 
 .card:hover {
-    box-shadow: 0 4px 18px rgba(0, 64, 48, 0.16);
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 32px 0 rgba(255, 60, 172, 0.10);
+    transform: translateY(-3px) scale(1.02);
 }
 
 .card-header {
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* Stack vertically */
     align-items: flex-start;
-    /* or center if you want */
     gap: 0.2rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-main, #4A9782);
+    border-bottom: 1.5px solid var(--color-border);
     background: none;
     font-size: 1.2rem;
+    color: var(--color-black);
+    font-weight: bold;
 }
 
 /* Headings */
 .heading {
-    color: var(--color-main);
-    font-size: 2.5rem;
+    color: var(--color-black);
+    font-size: 2.2rem;
     margin-bottom: 1rem;
     letter-spacing: 0.03em;
+    text-align: center;
 }
 
 .description {
-    color: var(--color-dark);
-    font-size: 1.15rem;
+    color: #333;
+    font-size: 1.13rem;
+    opacity: 0.94;
+    text-align: center;
 }
 
-/* Grid System */
 .grid {
     display: grid;
     gap: 2rem;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
-    /* Desktop */
 }
 
 @media (max-width: 1200px) {
     .grid {
         grid-template-columns: repeat(3, 1fr);
-        /* Big tablets */
     }
 }
 
 @media (max-width: 900px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
-        /* Tablets */
     }
 }
 
 @media (max-width: 600px) {
     .grid {
         grid-template-columns: 1fr;
-        /* Mobile */
         gap: 1rem;
     }
 }
 
-.col-1 {
-    grid-column: span 1;
-}
-
-.col-2 {
-    grid-column: span 2;
-}
-
-.col-3 {
-    grid-column: span 3;
-}
-
-.col-4 {
-    grid-column: span 4;
-}
-
-.col-6 {
-    grid-column: span 6;
-}
-
-.col-8 {
-    grid-column: span 8;
-}
-
-.col-12 {
-    grid-column: span 12;
-}
-
 /* Links & buttons */
-
-.links {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    padding-top: 16px;
-}
-
 .link {
-    background: var(--color-main);
-    color: var(--color-bg);
+    background: var(--color-white);
+    color: var(--color-black);
+    border: 2.5px solid var(--color-border);
     padding: 1rem 2rem;
     border-radius: var(--radius);
     font-weight: 600;
     text-decoration: none;
-    transition: background 0.2s;
-    box-shadow: 0 1px 6px rgba(0, 64, 48, 0.12);
+    transition: background 0.18s, color 0.13s, transform 0.13s, border-color 0.14s;
+    box-shadow: 0 1px 6px rgba(24, 24, 24, 0.07);
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100px;
     font-size: 1.3rem;
+    outline: none;
 }
 
-.link:hover {
-    background: var(--color-dark);
-}
-
-/* Utility class for container */
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin-inline: auto;
-    padding-block: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-/* components.css (add to the end, after .card) */
-
-
-
-.pokedex-num {
-    font-size: 1rem;
-    color: var(--color-main);
-    font-weight: 600;
-}
-
-.poke-name {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--color-dark);
-    letter-spacing: 0.04em;
-}
-
-.type-list {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.type-badge {
-    padding: 0.3em 0.9em;
-    border-radius: 999px;
-    font-size: 1rem;
-    font-weight: 600;
+.link:hover,
+.link:focus {
+    background: var(--color-accent);
     color: #fff;
-    background: var(--color-main);
-    text-transform: capitalize;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    border-color: var(--color-accent);
+    transform: scale(1.045);
+    text-decoration: none;
 }
-
-/* Add type-based colors! (Optional) */
-.type-fire {
-    background: #E8582A;
-}
-
-.type-water {
-    background: #2892D7;
-}
-
-.type-grass {
-    background: #4CAF50;
-}
-
-.type-electric {
-    background: #F7C30D;
-}
-
-.type-normal {
-    background: #aaa;
-}
-
-.type-poison {
-    background: #A040A0;
-}
-
-.type-flying {
-    background: #A890F0;
-}
-
-
-.stats {
-    display: flex;
-    gap: 1.5rem;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.evolve {
-    margin-bottom: 0.75rem;
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.poke-desc {
-    font-size: 1.05rem;
-    color: var(--color-dark);
-    margin-top: 0.25rem;
-    opacity: 0.85;
-    line-height: 1.5;
-}
-
-/*--- Buttons ---*/
 
 .btn-back {
-    display: inline-block;
-    background: var(--color-main);
-    color: #fff;
+    display: block;
+    background: var(--color-white);
+    color: var(--color-black);
+    border: 2.5px solid var(--color-border);
     font-weight: 700;
-    font-size: 1.2rem;
-    padding: 1.25rem 2rem;
-    border: none;
-    border-radius: 8px;
-    /* Minimal radius */
+    font-size: 1.13rem;
+    padding: 1.1rem 2.2rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 14px rgba(24, 24, 24, 0.12);
     margin-bottom: 2rem;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.09);
-    transition: background 0.2s, transform 0.1s;
-    width: fit-content;
+    transition: background 0.14s, color 0.11s, border-color 0.13s, transform 0.13s;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn-back:hover,
 .btn-back:focus {
-    background: var(--color-dark);
-    transform: translateY(-2px) scale(1.03);
-    text-decoration: none;
-}
-
-/* moves */
-
-.move-card {
-    padding: 1.25rem;
     background: var(--color-accent);
-    border-radius: var(--radius);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.move-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-weight: 600;
-    font-size: 1.15rem;
-    margin-bottom: 0.5rem;
-}
-
-.move-name {
-    color: var(--color-main);
-    font-weight: bold;
-}
-
-.move-type {
-    color: var(--color-dark);
-    background: #f3f3f3;
-    border-radius: 10px;
-    font-size: 0.97rem;
-    padding: 0.18em 0.8em;
-}
-
-.move-details {
-    display: flex;
-    gap: 1.5rem;
-    font-size: 1rem;
-    opacity: 0.88;
-}
-
-.move-desc {
-    font-size: 1.05rem;
-    color: var(--color-dark);
-    opacity: 0.84;
-    line-height: 1.5;
+    color: #fff;
+    border-color: var(--color-accent);
+    transform: translateY(-2px) scale(1.04);
+    text-decoration: none;
+    outline: none;
 }

@@ -7,7 +7,7 @@ export default function PlanetsPage() {
 	const { data, isLoading, isError } = usePlanets();
 
 	return (
-		<section className="content">
+		<section>
 			<h1 className="heading">Planets</h1>
 			<p className="mb-2 description">
 				Discover the planets across various stars and galaxies.

@@ -1,14 +1,15 @@
+// src/app/page.tsx
 import "@/styles/components.css";
 import "@/styles/global.css";
 
 export default function HomePage() {
 	return (
 		<section>
-			<h1>Welcome Cosmic Explorer: Discover Galaxies, Planets, and Stars!</h1>
-			<p className="mb-2">
-				This is a sample application demonstrating the integration of Docker,
-				Django, and Next.js. Choose an option below to explore detailed
-				information about galaxies, planets, stars, or black holes.
+			<h1 className="heading">Welcome, Cosmic Explorer! ✨</h1>
+			<p className="mb-6 description">
+				Explore and discover galaxies, planets, stars, and black holes with this
+				interactive demo. <br />
+				Choose a category below to begin your cosmic journey.
 			</p>
 			<div className="grid">
 				<a href="/galaxies" className="link">

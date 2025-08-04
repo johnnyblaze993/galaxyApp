@@ -7,7 +7,7 @@ export default function StarsPage() {
 	const { data, isLoading, isError } = useStars();
 
 	return (
-		<section className="content">
+		<section>
 			<h1 className="heading">Stars</h1>
 			<p className="mb-2 description">
 				Browse the notable stars in our database.

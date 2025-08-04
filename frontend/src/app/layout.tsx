@@ -1,11 +1,13 @@
+// src/app/layout.tsx
 import QueryProvider from "./providers/QueryProvider";
 import "@/styles/global.css";
 import "@/styles/layout.css";
 import "@/styles/components.css";
 
 export const metadata = {
-	title: "PokedexPyApp",
-	description: "Pokémon database and explorer app",
+	title: "Cosmic Data Explorer",
+	description:
+		"Galaxy, planet, star, and black hole database for modern dev demos",
 };
 
 export default function RootLayout({
@@ -19,11 +21,18 @@ export default function RootLayout({
 				<QueryProvider>
 					<div className="layout-wrapper">
 						<header className="header">
-							Welcome to Docker + Django + Next JS environment!
+							<span
+								role="img"
+								aria-label="galaxy"
+								style={{ fontSize: 32, marginRight: 8 }}
+							>
+								🌌
+							</span>
+							Welcome to the Cosmic Data Explorer!
 						</header>
 						<main className="content">{children}</main>
 						<footer className="footer">
-							Dev environment — Powered by Docker, Djnago & Next.js
+							Dev environment — Powered by Docker, Django & Next.js
 						</footer>
 					</div>
 				</QueryProvider>

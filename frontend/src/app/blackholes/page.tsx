@@ -7,7 +7,7 @@ export default function BlackHolesPage() {
 	const { data, isLoading, isError } = useBlackHoles();
 
 	return (
-		<section className="content">
+		<section>
 			<h1 className="heading">Black Holes</h1>
 			<p className="mb-2 description">
 				Explore the black holes cataloged in our universe.
