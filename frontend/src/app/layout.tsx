@@ -32,7 +32,7 @@ export default function RootLayout({
 							>
 								🌠
 							</span>
-							Welcome to the Cosmic Data Explorer!
+							Space themed Django & Next.js App
 						</header>
 						<main className="content">{children}</main>
 						<footer className="footer">

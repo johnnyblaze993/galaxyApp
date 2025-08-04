@@ -9,7 +9,7 @@ A professional full-stack demo app for exploring galaxies, stars, planets, and b
 1. **Clone the repository:**
 
     ```sh
-    git clone <repo-url>
+    git clone https://github.com/johnnyblaze993/pokedexPyApp.git
     cd pokedexPyApp
     ```
 
