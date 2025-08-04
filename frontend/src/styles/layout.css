@@ -16,6 +16,25 @@
     border-bottom: 2px solid var(--color-border);
 }
 
+.nav-header {
+    background: linear-gradient(100deg, #281a4e 10%, #8937FF 60%, #FF3CAC 100%);
+    color: #fff;
+    padding: 28px 16px 24px 16px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 24px 0 rgba(137, 55, 255, 0.10);
+    border-bottom: 2px solid #38186a;
+    position: relative;
+    z-index: 2;
+    /* Optional: subtle text glow */
+    text-shadow: 0 2px 12px #8937ff88, 0 1px 1px #2e225e99;
+    /* For a touch of separation at the top */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
 .content {
     flex: 1;
     width: 100%;

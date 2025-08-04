@@ -20,11 +20,15 @@ export default function RootLayout({
 			<body>
 				<QueryProvider>
 					<div className="layout-wrapper">
-						<header className="header">
+						<header className="nav-header">
 							<span
 								role="img"
 								aria-label="galaxy"
-								style={{ fontSize: 32, marginRight: 8 }}
+								style={{
+									fontSize: 32,
+									marginRight: 8,
+									filter: "drop-shadow(0 1px 4pxrgba(248, 248, 248, 0.53))",
+								}}
 							>
 								🌌
 							</span>

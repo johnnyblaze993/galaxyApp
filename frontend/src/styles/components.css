@@ -40,11 +40,30 @@
 
 /* Headings */
 .heading {
-    color: var(--color-black);
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-    letter-spacing: 0.03em;
+    color: #12002F;
+    font-size: 2.5rem;
+    margin-bottom: 1.3rem;
+    letter-spacing: 0.04em;
     text-align: center;
+    font-weight: 900;
+}
+
+/* For description block under heading */
+.description-block {
+    /* background: #f8f8fc; */
+    /* border: 2px solid #e3e3ec; */
+    color: #21295c;
+    border-radius: 16px;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Highlighted words for hierarchy */
+.highlight {
+    color: #8937FF;
+    font-weight: 700;
 }
 
 .description {
@@ -99,15 +118,6 @@
     outline: none;
 }
 
-.link:hover,
-.link:focus {
-    background: var(--color-accent);
-    color: #fff;
-    border-color: var(--color-accent);
-    transform: scale(1.045);
-    text-decoration: none;
-}
-
 .btn-back {
     display: block;
     background: var(--color-white);
@@ -128,12 +138,17 @@
     margin-right: auto;
 }
 
+/* === Galaxy Hover for Buttons/Links === */
+.link:hover,
+.link:focus,
 .btn-back:hover,
 .btn-back:focus {
-    background: var(--color-accent);
-    color: #fff;
-    border-color: var(--color-accent);
+    background: linear-gradient(100deg, #2d1b4d 10%, #8937FF 60%, #FF3CAC 100%);
+    color: #fff !important;
+    border-color: #8937FF;
+    box-shadow: 0 4px 28px 0 rgba(137, 55, 255, 0.15), 0 1px 2px #38186a22;
     transform: translateY(-2px) scale(1.04);
     text-decoration: none;
     outline: none;
+    transition: background 0.16s, color 0.13s, box-shadow 0.14s, border-color 0.15s;
 }
