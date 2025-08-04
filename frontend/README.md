@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌠 Frontend – Astronomy Data Explorer
 
-## Getting Started
+This is the **Next.js** (React + TypeScript) frontend for the Astronomy Data Explorer.  
+It provides a beautiful, responsive UI to browse and visualize galaxies, stars, planets, and black holes from the API.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Quick Start (Development)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Install dependencies (locally, outside Docker, for code completion):**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    ```sh
+    npm install
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Start the frontend (in Docker Compose):**
+    - The frontend will run on [http://localhost:3000](http://localhost:3000) as part of the full stack (`docker compose up --build -d`).
 
-## Learn More
+3. **Live development:**
+    - For instant hot reloading, use VSCode’s **Remote Explorer** to attach directly to the running `frontend` container.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Important Files & Folders
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/pages/`  
+  Next.js app routes (each file = route).
+- `src/features/`  
+  React hooks and API logic for each entity (galaxies, stars, etc).
+- `src/components/`  
+  Reusable UI components (cards, buttons, loading spinners, etc).
+- `src/styles/`  
+  All CSS files for global, layout, and component styling.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Useful Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` — Start the Next.js dev server (useful for local dev outside Docker).
+- `npm run build` — Create a production build.
+- `npm run lint` — Run code linting checks.
+
+---
+
+## 💡 Workflow Tips
+
+- All API requests are routed to the backend at `/api/...`.
+- Change the theme or UI in `src/styles/`.
+- To add a new data page (e.g., "Nebulas"):
+    1. Create a new API hook in `src/features/nebulas/useNebulas.ts`.
+    2. Add a page in `src/pages/nebulas.tsx`.
+    3. Use the existing grid and card UI patterns for consistency.
+- Use `npm install <package>` inside the Dev Container for new dependencies.
+
+---
+
+## 🧑‍🚀 Pro Tip
+
+For **best results**, always develop inside the Docker Dev Container for instant hot reloading and a production-matching environment.
+
+---

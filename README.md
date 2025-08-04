@@ -13,7 +13,14 @@ A professional full-stack demo app for exploring galaxies, stars, planets, and b
     cd galaxyApp
     ```
 
-2. **Start the stack in detached mode (builds images and seeds the database):**
+2. **Ensure backend wait script is executable:**  
+   (This allows the backend to wait for the database before starting.)
+
+    ```sh
+    chmod u+x ./backend/wait-for-it.sh
+    ```
+
+3. **Start the stack in detached mode (builds images and seeds the database):**
 
     ```sh
     docker compose up --build -d
@@ -23,7 +30,7 @@ A professional full-stack demo app for exploring galaxies, stars, planets, and b
     - Applies Django migrations and seeds the database with astronomy data automatically.
     - **You’ll get your terminal back right away.**
 
-3. **Open your project in a Dev Container (for live code editing and hot reloading):**
+4. **Open your project in a Dev Container (for live code editing and hot reloading):**
 
     - Open **VSCode**.
     - Open the **Command Palette** (`Ctrl+Shift+P` or `Cmd+Shift+P`).
@@ -32,7 +39,7 @@ A professional full-stack demo app for exploring galaxies, stars, planets, and b
     - **Right-click** on the `frontend` or `backend` container and select **“Attach to Container”** or **“Open in Container”**.
     - Once inside the Dev Container, any code changes you make (in frontend or backend) will reflect **live** in your running app—no need for `docker compose watch`!
 
-4. **Stop all containers:**
+5. **Stop all containers:**
 
     ```sh
     docker compose down
