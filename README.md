@@ -10,28 +10,27 @@ A professional full-stack demo app for exploring galaxies, stars, planets, and b
 
     ```sh
     git clone https://github.com/johnnyblaze993/galaxyApp.git
-    cd pokedexPyApp
+    cd galaxyApp
     ```
 
-2. **Start the stack (builds images and seeds the database):**
+2. **Start the stack in detached mode (builds images and seeds the database):**
 
     ```sh
-    docker compose up --build
+    docker compose up --build -d
     ```
 
-    - Builds all Docker images and starts the database, backend, and frontend.
+    - Builds all Docker images and starts the database, backend, and frontend in the background.
     - Applies Django migrations and seeds the database with astronomy data automatically.
+    - **You’ll get your terminal back right away.**
 
-3. **(Optional but recommended for frontend development) Enable hot reloading:**
+3. **Open your project in a Dev Container (for live code editing and hot reloading):**
 
-    ```sh
-    docker compose watch
-    ```
-
-    - **Open a second terminal window/tab** and navigate to your project directory.
-    - Run `docker compose watch` to enable hot reloading (file sync) for the frontend.
-    - No need to stop or rebuild containers—`watch` works live with your running stack.
-    - **When to use:** Whenever you want to see frontend changes reflected instantly in your browser.
+    - Open **VSCode**.
+    - Open the **Command Palette** (`Ctrl+Shift+P` or `Cmd+Shift+P`).
+    - Type and select **“Remote Explorer: Focus on Containers”**.
+    - After running `docker compose up --build -d`, you’ll see your running containers in the **Remote Explorer** panel.
+    - **Right-click** on the `frontend` or `backend` container and select **“Attach to Container”** or **“Open in Container”**.
+    - Once inside the Dev Container, any code changes you make (in frontend or backend) will reflect **live** in your running app—no need for `docker compose watch`!
 
 4. **Stop all containers:**
 
@@ -45,20 +44,15 @@ A professional full-stack demo app for exploring galaxies, stars, planets, and b
 
 ## 🔄 Typical Development Flow
 
-1. Start the stack:
+1. Start the stack (in detached/background mode):
 
     ```sh
-    docker compose up --build
+    docker compose up --build -d
     ```
 
-2. In a second terminal, enable hot reloading:
+2. In VSCode, use the **Remote Explorer** sidebar to open and edit code directly inside your running containers for hot reloading and instant feedback.
 
-    ```sh
-    docker compose watch
-    ```
-
-3. Make code changes and see them live!
-4. When done, stop everything:
+3. When done, stop everything:
 
     ```sh
     docker compose down
@@ -71,7 +65,7 @@ A professional full-stack demo app for exploring galaxies, stars, planets, and b
 - **If you add new Python/Node packages or change Dockerfile(s), always re-run:**
 
     ```sh
-    docker compose up --build
+    docker compose up --build -d
     ```
 
 - The database will be seeded with astronomy data on first run or any time the DB is reset (by removing the volume).
@@ -90,14 +84,14 @@ A professional full-stack demo app for exploring galaxies, stars, planets, and b
 
     ```sh
     docker compose down -v
-    docker compose up --build
+    docker compose up --build -d
     ```
 
 - **How do I see my changes reflected instantly in the frontend?**  
-  Use `docker compose watch` in a separate terminal while the stack is running.
+  Open your code in the frontend (or backend) Dev Container using VSCode’s **Remote Explorer**. Edit your code there for live reloading.
 
 - **Do I have to restart everything after every change?**  
-  _No._ Only if you change dependencies or Dockerfiles. Otherwise, just use `watch` for frontend live updates.
+  _No._ Only if you change dependencies or Dockerfiles. Otherwise, just edit your code in the container for live updates.
 
 ---
 
@@ -124,8 +118,6 @@ Once the stack is running, check these endpoints:
 ## 💡 Contribution Tips
 
 - Run `npm install` in `/frontend` locally if you want code completion and TypeScript type checking in your editor (VSCode, etc.).
-- Use VSCode Dev Containers for a fully containerized dev experience (optional).
+- Use **VSCode Dev Containers** (with Docker) for a fully containerized and integrated development experience.
 
 ---
-
-**Happy exploring! 🚀**
