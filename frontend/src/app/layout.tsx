@@ -30,7 +30,7 @@ export default function RootLayout({
 									filter: "drop-shadow(0 1px 4pxrgba(248, 248, 248, 0.53))",
 								}}
 							>
-								🌌
+								🌠
 							</span>
 							Welcome to the Cosmic Data Explorer!
 						</header>
