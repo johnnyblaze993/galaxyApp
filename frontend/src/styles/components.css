@@ -56,8 +56,8 @@
     border-radius: 16px;
     max-width: 600px;
     margin: 0 auto 2.5rem auto;
-    font-size: 1.1rem;
-    text-align: center;
+    font-size: 1rem;
+    /* text-align: center; */
 }
 
 /* Highlighted words for hierarchy */
@@ -108,7 +108,12 @@
     border-radius: var(--radius);
     font-weight: 600;
     text-decoration: none;
-    transition: background 0.18s, color 0.13s, transform 0.13s, border-color 0.14s;
+    transition:
+        background-position 0.7s cubic-bezier(0.5, 0, 0.2, 1),
+        background 0.18s,
+        color 0.16s,
+        border-color 0.15s,
+        box-shadow 0.14s;
     box-shadow: 0 1px 6px rgba(24, 24, 24, 0.07);
     display: flex;
     align-items: center;
@@ -132,23 +137,54 @@
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    transition: background 0.14s, color 0.11s, border-color 0.13s, transform 0.13s;
+    transition:
+        background-position 0.7s cubic-bezier(0.5, 0, 0.2, 1),
+        background 0.18s,
+        color 0.16s,
+        border-color 0.15s,
+        box-shadow 0.14s;
+
     width: 300px;
     margin-left: auto;
     margin-right: auto;
 }
 
 /* === Galaxy Hover for Buttons/Links === */
+
 .link:hover,
 .link:focus,
 .btn-back:hover,
 .btn-back:focus {
-    background: linear-gradient(100deg, #2d1b4d 10%, #8937FF 60%, #FF3CAC 100%);
+    background: linear-gradient(100deg,
+            #2d1b4d 0%,
+            #8937ff 35%,
+            #ff3cac 55%,
+            #89f7fe 70%,
+            #2d1b4d 100%);
+    background-size: 300% 300%;
+    /* background-position: 100% 50%; */
     color: #fff !important;
     border-color: #8937FF;
     box-shadow: 0 4px 28px 0 rgba(137, 55, 255, 0.15), 0 1px 2px #38186a22;
-    transform: translateY(-2px) scale(1.04);
+    animation: galaxy-move 6s linear infinite;
     text-decoration: none;
     outline: none;
-    transition: background 0.16s, color 0.13s, box-shadow 0.14s, border-color 0.15s;
+    transition:
+        background-position 0.7s cubic-bezier(0.5, 0, 0.2, 1),
+        background 0.18s,
+        color 0.16s,
+        border-color 0.15s,
+        box-shadow 0.14s;
+}
+
+/* keyframes */
+
+@keyframes galaxy-move {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
 }
