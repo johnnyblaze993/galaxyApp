@@ -1,62 +1,101 @@
 from django.core.management.base import BaseCommand
-from pokedex.models import Type, Move, Pokemon, PokemonType, PokemonMove, Evolution
+from pokedex.models import Galaxy, Star, Planet, BlackHole
 
 class Command(BaseCommand):
-    help = "Seeds the database with initial pokedex data"
+    help = "Seeds the database with initial astronomy data"
 
     def handle(self, *args, **kwargs):
-        # Example: Wipe all data first (careful in prod!)
-        Type.objects.all().delete()
-        Move.objects.all().delete()
-        Pokemon.objects.all().delete()
-        Evolution.objects.all().delete()
+        # Wipe all data first (CAREFUL: destructive!)
+        Galaxy.objects.all().delete()
+        Star.objects.all().delete()
+        Planet.objects.all().delete()
+        BlackHole.objects.all().delete()
 
-        # 1. Create types
-        grass = Type.objects.create(name="Grass")
-        fire = Type.objects.create(name="Fire")
-        water = Type.objects.create(name="Water")
-        electric = Type.objects.create(name="Electric")
-
-        # 2. Create moves
-        vine_whip = Move.objects.create(name="Vine Whip", power=45, accuracy=1.0, type=grass)
-        ember = Move.objects.create(name="Ember", power=40, accuracy=1.0, type=fire)
-        water_gun = Move.objects.create(name="Water Gun", power=40, accuracy=1.0, type=water)
-        # thunder_shock = Move.objects.create(name="Thunder Shock", power=40, accuracy=1.0, type=electric)
-
-        # 3. Create pokemon
-        bulbasaur = Pokemon.objects.create(
-            name="Bulbasaur", pokedex_num=1, does_evolve=True,
-            height=0.7, weight=6.9, base_stats={"hp": 45, "atk": 49, "def": 49},
-            description="A strange seed was planted on its back at birth."
+        # 1. Create galaxies
+        milky_way = Galaxy.objects.create(
+            name="Milky Way",
+            type="Spiral",
+            distance_mly=0.0,
+            description="The galaxy that contains our Solar System."
         )
-        charmander = Pokemon.objects.create(
-            name="Charmander", pokedex_num=4, does_evolve=True,
-            height=0.6, weight=8.5, base_stats={"hp": 39, "atk": 52, "def": 43},
-            description="Obviously prefers hot places."
+        andromeda = Galaxy.objects.create(
+            name="Andromeda",
+            type="Spiral",
+            distance_mly=2.5,
+            description="Nearest major galaxy to the Milky Way."
         )
-        squirtle = Pokemon.objects.create(
-            name="Squirtle", pokedex_num=7, does_evolve=True,
-            height=0.5, weight=9.0, base_stats={"hp": 44, "atk": 48, "def": 65},
-            description="After birth, its back swells and hardens into a shell."
+
+        # 2. Create stars
+        sun = Star.objects.create(
+            name="Sun",
+            galaxy=milky_way,
+            type="G-Type Main-Sequence",
+            mass_solar=1.0,
+            radius_solar=1.0,
+            description="Our home star."
         )
-        # pikachu = Pokemon.objects.create(
-        #     name="Pikachu", pokedex_num=25, does_evolve=True,
-        #     height=0.4, weight=6.0, base_stats={"hp": 35, "atk": 55, "def": 40},
-        #     description="When several of these Pokémon gather, their electricity could build and cause lightning storms."
-        # )
+        proxima_centauri = Star.objects.create(
+            name="Proxima Centauri",
+            galaxy=milky_way,
+            type="Red Dwarf",
+            mass_solar=0.12,
+            radius_solar=0.14,
+            description="Closest known star to the Sun."
+        )
+        andromeda_star = Star.objects.create(
+            name="Andromeda Star 1",
+            galaxy=andromeda,
+            type="Blue Giant",
+            mass_solar=20.0,
+            radius_solar=5.0,
+            description="A massive blue giant in the Andromeda Galaxy."
+        )
 
-        # 4. Set up ManyToMany relationships
-        bulbasaur.types.add(grass)
-        charmander.types.add(fire)
-        squirtle.types.add(water)
-        # pikachu.types.add(electric)
+        # 3. Create planets
+        earth = Planet.objects.create(
+            name="Earth",
+            star=sun,
+            galaxy=milky_way,
+            type="Terrestrial",
+            mass_earth=1.0,
+            radius_earth=1.0,
+            habitable=True
+        )
+        mars = Planet.objects.create(
+            name="Mars",
+            star=sun,
+            galaxy=milky_way,
+            type="Terrestrial",
+            mass_earth=0.107,
+            radius_earth=0.532,
+            habitable=False
+        )
+        proxima_b = Planet.objects.create(
+            name="Proxima b",
+            star=proxima_centauri,
+            galaxy=milky_way,
+            type="Terrestrial",
+            mass_earth=1.27,
+            radius_earth=1.1,
+            habitable=True
+        )
 
-        bulbasaur.moves.add(vine_whip)
-        charmander.moves.add(ember)
-        squirtle.moves.add(water_gun)
-        # pikachu.moves.add(thunder_shock)
+        # 4. Create black holes
+        sag_a = BlackHole.objects.create(
+            name="Sagittarius A*",
+            galaxy=milky_way,
+            type="Supermassive",
+            mass_solar=4_100_000,
+            distance_from_center_ly=0.0,
+            description="The supermassive black hole at the center of the Milky Way."
+        )
+        andromeda_bh = BlackHole.objects.create(
+            name="Andromeda Black Hole",
+            galaxy=andromeda,
+            type="Supermassive",
+            mass_solar=1_000_000_000,
+            distance_from_center_ly=0.0,
+            description="A massive black hole at the center of the Andromeda galaxy."
+        )
 
-        # 5. Evolutions
-        # You can add sample evolutions here if you like
-
-        self.stdout.write(self.style.SUCCESS("Seeded pokedex data!"))
+        self.stdout.write(self.style.SUCCESS("Seeded astronomy data!"))

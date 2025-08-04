@@ -1,24 +1,22 @@
 from rest_framework import serializers
-from .models import Type, Move, Pokemon, Evolution
+from .models import Galaxy, Star, Planet, BlackHole
 
-# these convert the models into JSON serializable formats for API responses.
-
-class TypeSerializer(serializers.ModelSerializer):
+class GalaxySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Type
+        model = Galaxy
         fields = '__all__'
 
-class MoveSerializer(serializers.ModelSerializer):
+class StarSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Move
+        model = Star
         fields = '__all__'
 
-class PokemonSerializer(serializers.ModelSerializer):
+class PlanetSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Pokemon
+        model = Planet
         fields = '__all__'
 
-class EvolutionSerializer(serializers.ModelSerializer):
+class BlackHoleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Evolution
+        model = BlackHole
         fields = '__all__'

@@ -28,7 +28,7 @@ services:
   frontend:
     build:
       context: ./frontend
-    command: ["/bin/sh", "-c", "./entrypoint.sh"]
+    # Remove the command; will use Dockerfile's CMD
     ports:
       - "3000:3000"
     depends_on:

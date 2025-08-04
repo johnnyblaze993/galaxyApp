@@ -19,9 +19,9 @@ export default function HomePage() {
 				<a href="/moves" className="link">
 					Moves
 				</a>
-				{/* <a href="/evolutions" className="link">
-					Evolutions
-				</a> */}
+				<a href="/galaxies" className="link">
+					Galaxies
+				</a>
 			</div>
 		</section>
 	);

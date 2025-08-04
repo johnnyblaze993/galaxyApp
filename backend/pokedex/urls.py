@@ -1,12 +1,10 @@
 from rest_framework.routers import DefaultRouter
-from .views import TypeViewSet, MoveViewSet, PokemonViewSet, EvolutionViewSet
-
-# this page is used to define the URL routing for the Pokedex app.
+from .views import GalaxyViewSet, StarViewSet, PlanetViewSet, BlackHoleViewSet
 
 router = DefaultRouter()
-router.register(r'types', TypeViewSet)
-router.register(r'moves', MoveViewSet)
-router.register(r'pokemon', PokemonViewSet)
-router.register(r'evolutions', EvolutionViewSet)
+router.register(r'galaxies', GalaxyViewSet)
+router.register(r'stars', StarViewSet)
+router.register(r'planets', PlanetViewSet)
+router.register(r'blackholes', BlackHoleViewSet)
 
 urlpatterns = router.urls

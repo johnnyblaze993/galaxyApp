@@ -1,44 +1,131 @@
-# 🛠️ How to Start the Project (Dev Environment)
+# Astronomy Data Explorer
 
-1. Start Docker Desktop
-Make sure Docker Desktop is running before continuing.
+A professional full-stack demo app for exploring galaxies, stars, planets, and black holes—powered by Django, Postgres, and Next.js.
 
-If you closed it, open Docker Desktop from your Start Menu and wait until it says “Running.”
+---
 
-## 2. Start Backend + Database (Docker)
+## 🚀 Quick Start
 
-From your project root (pokedexPyApp):
+1. **Clone the repository:**
 
-docker-compose up
-This will start both the backend (Django) and the Postgres database.
+    ```sh
+    git clone <repo-url>
+    cd pokedexPyApp
+    ```
 
-If you want logs in your terminal, leave this window open.
+2. **Start the stack (builds images and seeds the database):**
 
-To stop everything later: Press Ctrl+C.
+    ```sh
+    docker compose up --build
+    ```
 
-## 3. Start the Frontend (Next.js)
+    - Builds all Docker images and starts the database, backend, and frontend.
+    - Applies Django migrations and seeds the database with astronomy data automatically.
 
-Open a new terminal, then run:
+3. **(Optional but recommended for frontend development) Enable hot reloading:**
 
-cd frontend
-npm install        # Only if you haven’t run this before or added new deps
-npm run dev
-This will start your Next.js app on <http://localhost:3000>.
+    ```sh
+    docker compose watch
+    ```
 
-## 4. (Optional) Apply Django Migrations / Add Data
+    - **Open a second terminal window/tab** and navigate to your project directory.
+    - Run `docker compose watch` to enable hot reloading (file sync) for the frontend.
+    - No need to stop or rebuild containers—`watch` works live with your running stack.
+    - **When to use:** Whenever you want to see frontend changes reflected instantly in your browser.
 
-If you need to re-run migrations or add sample data:
+4. **Stop all containers:**
 
-docker-compose run backend python manage.py migrate
-docker-compose run backend python manage.py shell
+    ```sh
+    docker compose down
+    ```
 
-## ...add your sample data using Python commands
+    - Shuts down all containers and the network.
 
-## 5. Access Your App
+---
 
-Frontend: <http://localhost:3000>
+## 🔄 Typical Development Flow
 
-Backend API: <http://localhost:8000/api/pokemon/>
+1. Start the stack:
 
-/frontend/dockerfile
- -
+    ```sh
+    docker compose up --build
+    ```
+
+2. In a second terminal, enable hot reloading:
+
+    ```sh
+    docker compose watch
+    ```
+
+3. Make code changes and see them live!
+4. When done, stop everything:
+
+    ```sh
+    docker compose down
+    ```
+
+---
+
+## 🛠️ Dependency or Dockerfile Updates
+
+- **If you add new Python/Node packages or change Dockerfile(s), always re-run:**
+
+    ```sh
+    docker compose up --build
+    ```
+
+- The database will be seeded with astronomy data on first run or any time the DB is reset (by removing the volume).
+
+---
+
+## ❓ FAQ & Troubleshooting
+
+- **Do I need Python, Node, or Postgres installed locally?**  
+  _No!_ Docker handles everything for you.
+
+- **Do I need to run migrations or seed data manually?**  
+  _No!_ The backend service does this automatically at startup.
+
+- **How do I reset the database (delete all data and start fresh)?**
+
+    ```sh
+    docker compose down -v
+    docker compose up --build
+    ```
+
+- **How do I see my changes reflected instantly in the frontend?**  
+  Use `docker compose watch` in a separate terminal while the stack is running.
+
+- **Do I have to restart everything after every change?**  
+  _No._ Only if you change dependencies or Dockerfiles. Otherwise, just use `watch` for frontend live updates.
+
+---
+
+## 📝 Project Structure
+
+- **/backend/**: Django app and management commands for data/API
+- **/frontend/**: Next.js frontend application (with hot reloading support)
+- **docker-compose.yml**: Orchestrates backend, frontend, and database
+- **Database**: PostgreSQL with auto-seeded astronomy data
+
+---
+
+## 🌌 Explore the API
+
+Once the stack is running, check these endpoints:
+
+- [http://localhost:8000/api/galaxies/](http://localhost:8000/api/galaxies/)
+- [http://localhost:8000/api/stars/](http://localhost:8000/api/stars/)
+- [http://localhost:8000/api/planets/](http://localhost:8000/api/planets/)
+- [http://localhost:8000/api/blackholes/](http://localhost:8000/api/blackholes/)
+
+---
+
+## 💡 Contribution Tips
+
+- Run `npm install` in `/frontend` locally if you want code completion and TypeScript type checking in your editor (VSCode, etc.).
+- Use VSCode Dev Containers for a fully containerized dev experience (optional).
+
+---
+
+**Happy exploring! 🚀**

@@ -1,20 +1,19 @@
-from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Type, Move, Pokemon, Evolution
-from .serializers import TypeSerializer, MoveSerializer, PokemonSerializer, EvolutionSerializer
+from .models import Galaxy, Star, Planet, BlackHole
+from .serializers import GalaxySerializer, StarSerializer, PlanetSerializer, BlackHoleSerializer
 
-class TypeViewSet(viewsets.ModelViewSet):
-    queryset = Type.objects.all()
-    serializer_class = TypeSerializer
+class GalaxyViewSet(viewsets.ModelViewSet):
+    queryset = Galaxy.objects.all()
+    serializer_class = GalaxySerializer
 
-class MoveViewSet(viewsets.ModelViewSet):
-    queryset = Move.objects.all()
-    serializer_class = MoveSerializer
+class StarViewSet(viewsets.ModelViewSet):
+    queryset = Star.objects.all()
+    serializer_class = StarSerializer
 
-class PokemonViewSet(viewsets.ModelViewSet):
-    queryset = Pokemon.objects.all()
-    serializer_class = PokemonSerializer
+class PlanetViewSet(viewsets.ModelViewSet):
+    queryset = Planet.objects.all()
+    serializer_class = PlanetSerializer
 
-class EvolutionViewSet(viewsets.ModelViewSet):
-    queryset = Evolution.objects.all()
-    serializer_class = EvolutionSerializer
+class BlackHoleViewSet(viewsets.ModelViewSet):
+    queryset = BlackHole.objects.all()
+    serializer_class = BlackHoleSerializer

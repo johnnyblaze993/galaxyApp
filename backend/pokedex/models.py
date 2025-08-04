@@ -1,54 +1,37 @@
-from django.db import models
 import uuid
 from django.db import models
 
-# Create your models here.
-
-class Type(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=50, unique=True)
-
-    def __str__(self):
-        return self.name
-
-class Move(models.Model):
+class Galaxy(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=100)
-    power = models.IntegerField()
-    accuracy = models.FloatField()
-    type = models.ForeignKey(Type, on_delete=models.CASCADE, related_name="moves")
-
-    def __str__(self):
-        return self.name
-
-class Pokemon(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=100)
-    pokedex_num = models.IntegerField(unique=True)
-    does_evolve = models.BooleanField(default=False)
-    height = models.FloatField()
-    weight = models.FloatField()
-    base_stats = models.JSONField()  # e.g. {"hp": 45, "atk": 49, ...}
+    type = models.CharField(max_length=50)
+    distance_mly = models.FloatField()
     description = models.TextField()
 
-    types = models.ManyToManyField(Type, through='PokemonType')
-    moves = models.ManyToManyField(Move, through='PokemonMove')
-
-    def __str__(self):
-        return self.name
-
-class PokemonType(models.Model):
+class Star(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE)
-    type = models.ForeignKey(Type, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    galaxy = models.ForeignKey(Galaxy, on_delete=models.CASCADE, related_name='stars')
+    type = models.CharField(max_length=50)
+    mass_solar = models.FloatField()
+    radius_solar = models.FloatField()
+    description = models.TextField()
 
-class PokemonMove(models.Model):
+class Planet(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE)
-    move = models.ForeignKey(Move, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    star = models.ForeignKey(Star, on_delete=models.CASCADE, related_name='planets')
+    galaxy = models.ForeignKey(Galaxy, on_delete=models.CASCADE, related_name='planets')
+    type = models.CharField(max_length=50)
+    mass_earth = models.FloatField()
+    radius_earth = models.FloatField()
+    habitable = models.BooleanField(default=False)
 
-class Evolution(models.Model):
+class BlackHole(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    base_pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE, related_name="base_evolution")
-    evolved_pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE, related_name="evolves_to")
-    method = models.CharField(max_length=100)  # e.g. "level 16", "moon stone"
+    name = models.CharField(max_length=100)
+    galaxy = models.ForeignKey(Galaxy, on_delete=models.CASCADE, related_name='blackholes')
+    type = models.CharField(max_length=50)
+    mass_solar = models.FloatField()
+    distance_from_center_ly = models.FloatField()
+    description = models.TextField()
