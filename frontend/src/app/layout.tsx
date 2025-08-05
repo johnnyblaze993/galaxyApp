@@ -32,12 +32,10 @@ export default function RootLayout({
 							>
 								🌠
 							</span>
-							Space themed Django & Next.js App
+							Test Application Template
 						</header>
 						<main className="content">{children}</main>
-						<footer className="footer">
-							Dev environment — Powered by Docker, Django & Next.js
-						</footer>
+						<footer className="footer">Dev environment</footer>
 					</div>
 				</QueryProvider>
 			</body>
